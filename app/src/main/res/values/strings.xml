@@ -1,3 +1,51 @@
 <resources>
-    <string name="app_name">Android-youbo</string>
+    <string name="app_name">有播</string>
+
+    <!-- 用户协议内容 -->
+    <string name="user_agreement_content">欢迎您使用有播应用！
+
+本协议是您与有播之间的法律协议。
+
+1. 服务条款
+- 您需遵守相关法律法规
+- 不得用于非法用途
+- 需保护账户安全
+
+2. 使用规范
+- 禁止传播违法信息
+- 禁止侵犯他人权益
+- 遵守社区规范
+
+3. 免责声明
+- 因不可抗力导致的服务中断，我们不承担责任
+- 用户自行承担使用风险
+
+点击"同意并继续"表示您同意以上条款。</string>
+
+    <!-- 隐私政策内容 -->
+    <string name="privacy_policy_content">有播非常重视您的隐私保护。
+
+1. 信息收集
+- 我们可能收集必要的设备信息
+- 收集使用过程中的日志信息
+- 仅用于提供更好的服务
+
+2. 信息使用
+- 用于改善产品功能
+- 用于安全保障
+- 不会向第三方出售您的个人信息
+
+3. 信息安全
+- 采用加密技术保护您的信息安全
+- 定期进行安全评估
+- 您有权要求删除个人信息
+
+4. 权利保障
+- 您可随时查看、更正个人信息
+- 可选择不提供部分信息
+- 可注销账户
+
+如有疑问，请联系客服。</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

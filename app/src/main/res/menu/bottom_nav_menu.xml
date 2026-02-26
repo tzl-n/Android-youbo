@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_youbo"
+        android:icon="@drawable/ic_youbo"
+        android:title="有播" />
+    
+    <item
+        android:id="@+id/action_haohuo"
+        android:icon="@drawable/ic_haohuo"
+        android:title="好货" />
+    
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_add"
+        android:title="" />
+    
+    <item
+        android:id="@+id/action_message"
+        android:icon="@drawable/ic_message"
+        android:title="消息" />
+    
+    <item
+        android:id="@+id/action_mine"
+        android:icon="@drawable/ic_mine"
+        android:title="我的" />
+</menu>

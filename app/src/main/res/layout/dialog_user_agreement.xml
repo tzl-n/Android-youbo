@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="用户协议和隐私政策"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 内容 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 条款1 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. 为了向您提供直播服务、精选购物等功能，我们需要您在个人信息、您可以在线相关页面阅读，更正您的个人信息。"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 条款2 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. 基于您的授权同意，我们可能会收集您的相机权限（发布商品或开播）、麦克风权限（发布商品或直播），存储权限（缓存文件、上传文件等）及位置权限等，您可以在隐私设置中进行授权。"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 条款3 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. 在您浏览视频、观看直播时请保存相关文件，我们会审查合规权限，同时为了信息推送和安全风控需要，我们会申请系统权限收集设备信息、日..."
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 按钮区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_disagree"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="不同意并退出"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginEnd="12dp" />
+
+        <Button
+            android:id="@+id/btn_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="同意并继续"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FFB85C" />
+
+    </LinearLayout>
+
+</LinearLayout>
