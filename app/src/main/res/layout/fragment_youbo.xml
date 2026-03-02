@@ -1,15 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- 抖音风格顶部搜索栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="有播页面"
-        android:textSize="24sp"
-        android:textColor="@android:color/black" />
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:elevation="4dp">
+        
+        <!-- 顶部状态栏占位 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:background="@android:color/white" />
+        
+        <!-- 抖音风格搜索区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+            
+            <!-- Logo或品牌标识 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有播"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FF4081"
+                android:layout_marginEnd="16dp" />
+            
+            <!-- 抖音风格搜索框 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_search_bar_douyin_style"
+                android:gravity="center_vertical">
+                
+                <!-- 搜索图标 -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/ic_search_modern"
+                    android:tint="#999999" />
+                
+                <!-- 搜索输入框 -->
+                <EditText
+                    android:id="@+id/search_input"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="搜索直播间、商品、短视频"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
+                
+                <!-- 语音搜索按钮 -->
+                <ImageButton
+                    android:id="@+id/btn_voice_search_top"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_microphone_modern"
+                    android:scaleType="centerInside"
+                    android:tint="#999999"
+                    android:contentDescription="语音搜索" />
+            </LinearLayout>
+            
+            <!-- 扫一扫按钮 -->
+            <ImageButton
+                android:id="@+id/btn_scan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_scan"
+                android:scaleType="centerInside"
+                android:tint="#666666"
+                android:contentDescription="扫一扫" />
+        </LinearLayout>
+    </LinearLayout>
 
+    <!-- 主要内容区域 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 顶部导航标签 -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:color/white"
+                app:tabIndicatorColor="@color/bottom_nav_selected"
+                app:tabSelectedTextColor="@color/bottom_nav_selected"
+                app:tabTextColor="@color/bottom_nav_unselected" />
+
+            <!-- 内容区域 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="有播推荐"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- 商品列表占位 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
