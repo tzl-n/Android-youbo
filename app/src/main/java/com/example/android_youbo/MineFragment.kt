@@ -36,7 +36,7 @@ class MineFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvViewAll).setOnClickListener {
             navigateToOrders(view, 0) // 0 表示全部订单
         }
-
+            //新的
         // 订单相关点击
         view.findViewById<ImageView>(R.id.ivPendingPayment).setOnClickListener {
             navigateToOrders(view, 1) // 1 表示待付款
