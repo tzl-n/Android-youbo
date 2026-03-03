@@ -2,11 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
+
     <!-- 底部导航栏选中颜色 -->
     <color name="bottom_nav_selected">#FFB85C</color>
     <color name="bottom_nav_unselected">#757575</color>
-    
+
     <!-- 底部导航栏颜色状态 -->
     <color name="bottom_nav_colors">#FFB85C</color>
+
+    <!-- 登录页面颜色 -->
+    <color name="primary_color">#FFB85C</color>
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_link">#0066CC</color>
+    <color name="error_color">#FF4444</color>
 </resources>

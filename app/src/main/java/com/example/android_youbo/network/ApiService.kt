@@ -5,16 +5,16 @@ import retrofit2.Response
 import retrofit2.http.*
 
 /**
- * 示例API接口
+ * 示例 API 接口
  */
 interface ApiService {
-    
+
     /**
-     * 测试连接 - 获取API健康状态
+     * 测试连接 - 获取 API 健康状态
      */
     @GET("health")
     suspend fun getHealthStatus(): Response<ApiResponse<String>>
-    
+
     /**
      * 获取商品列表
      */
@@ -23,31 +23,35 @@ interface ApiService {
         @Query("page") page: Int = 1,
         @Query("size") size: Int = 20
     ): Response<ApiResponse<List<Product>>>
-    
+
     /**
      * 获取商品详情
      */
     @GET("api/products/{id}")
     suspend fun getProductDetail(@Path("id") productId: Long): Response<ApiResponse<Product>>
-    
+
     /**
      * 搜索商品
      */
     @GET("api/products/search")
     suspend fun searchProducts(@Query("keyword") keyword: String): Response<ApiResponse<List<Product>>>
-    
+
     /**
      * 用户登录
      */
-    @POST("api/auth/login")
-    suspend fun login(@Body loginRequest: LoginRequest): Response<ApiResponse<User>>
-    
+    @FormUrlEncoded
+    @POST("/user/login")
+    suspend fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Response<ApiResponse<User>>
+
     /**
      * 获取用户信息
      */
     @GET("api/user/info")
     suspend fun getUserInfo(): Response<ApiResponse<User>>
-    
+
     /**
      * 获取推荐短视频列表
      */
@@ -67,14 +71,6 @@ data class Product(
     val price: Double,
     val imageUrl: String,
     val description: String
-)
-
-/**
- * 登录请求数据类
- */
-data class LoginRequest(
-    val username: String,
-    val password: String
 )
 
 /**
