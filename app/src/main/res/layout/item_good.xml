@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
-    <!-- 商品图片 -->
-    <ImageView
-        android:id="@+id/iv_good"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="#F5F5F5"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ff1" />
-
-    <!-- 商品信息 -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="16dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title"
+        <!-- 商品图片区域 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#F5F5F5">
+
+            <!-- 商品图片 -->
+            <ImageView
+                android:id="@+id/iv_good_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="#CCCCCC" />
+
+        </RelativeLayout>
+
+        <!-- 商品信息区域 -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="商品标题"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:orientation="vertical"
+            android:padding="12dp">
 
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="¥99.00"
-            android:textSize="14sp"
-            android:textColor="#FFB85C" />
+            <!-- 商品标题 -->
+            <TextView
+                android:id="@+id/tv_good_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="【季惊 - 自主】季惊稻香米精选新米 5kg/袋"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_tag"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_tag"
-            android:gravity="center"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="热销"
-            android:textSize="12sp"
-            android:textColor="@android:color/white" />
+            <!-- 商品价格 -->
+            <TextView
+                android:id="@+id/tv_good_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="￥ 46.00"
+                android:textColor="#FF4444"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- 销量 -->
+            <TextView
+                android:id="@+id/tv_good_sales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="销量 0"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <!-- 右侧箭头 -->
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_arrow_right"
-        android:contentDescription="详情" />
-</LinearLayout>
+</androidx.cardview.widget.CardView>

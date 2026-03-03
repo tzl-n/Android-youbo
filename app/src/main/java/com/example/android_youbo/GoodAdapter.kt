@@ -30,10 +30,10 @@ class GoodAdapter : RecyclerView.Adapter<GoodAdapter.GoodViewHolder>() {
     override fun getItemCount() = items.size
 
     class GoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val titleTextView: TextView = itemView.findViewById(R.id.tv_title)
-        private val priceTextView: TextView = itemView.findViewById(R.id.tv_price)
-        private val tagTextView: TextView = itemView.findViewById(R.id.tv_tag)
-        private val imageView: ImageView = itemView.findViewById(R.id.iv_good)
+        private val titleTextView: TextView = itemView.findViewById(R.id.tv_good_title)
+        private val priceTextView: TextView = itemView.findViewById(R.id.tv_good_price)
+        private val tagTextView: TextView = itemView.findViewById(R.id.tv_good_sales)
+        private val imageView: ImageView = itemView.findViewById(R.id.iv_good_cover)
 
         fun bind(item: GoodItem) {
             titleTextView.text = item.title

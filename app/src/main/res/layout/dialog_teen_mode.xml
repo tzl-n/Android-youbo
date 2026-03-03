@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <!-- 顶部图标 -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_shield_check"
+        android:contentDescription="@string/app_name"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 说明文字 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="为呵护未成年人健康成长，有播特别推出青少年模式，该模式下部分功能无法正常使用。请监护人主动选择，并设置监护密码。"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:lineSpacingExtra="6dp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- 我知道了按钮 -->
+    <Button
+        android:id="@+id/btn_i_know"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:text="我知道了"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#1F2329"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 设置青少年模式文字按钮 -->
+    <TextView
+        android:id="@+id/tv_setup_teen_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置青少年模式 >"
+        android:textSize="16sp"
+        android:textColor="#FFB85C"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout>
