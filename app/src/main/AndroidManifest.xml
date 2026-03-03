@@ -38,6 +38,12 @@
             android:name=".TeenModeActivity"
             android:exported="false" 
             android:label="青少年模式" />
+
+        <!-- 我的订单 Activity -->
+        <activity
+            android:name=".MyOrdersActivity"
+            android:exported="false"
+            android:label="我的订单" />
     </application>
 
 </manifest>
