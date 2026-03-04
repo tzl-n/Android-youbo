@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- 背景圆形 -->
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M24,24m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0" />
+    
+    <!-- 购物袋图标 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,14c-2.2,0 -4,1.8 -4,4v2h-4c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V22c0,-1.1 -0.9,-2 -2,-2h-4v-2C28,15.8 26.2,14 24,14zM24,16c1.1,0 2,0.9 2,2v2h-4v-2C22,16.9 22.9,16 24,16z" />
+</vector>

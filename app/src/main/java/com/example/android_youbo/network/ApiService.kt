@@ -1,5 +1,6 @@
 package com.example.android_youbo.network
 
+import com.example.android_youbo.model.GoodModel
 import com.example.android_youbo.model.VideoApiResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -86,3 +87,17 @@ data class User(
     val nickname: String,
     val avatar: String
 )
+
+/**
+ * Product 转换为 GoodModel 的扩展函数
+ */
+fun Product.toGoodModel(): GoodModel {
+    return GoodModel(
+        id = this.id,
+        title = this.name,
+        coverUrl = this.imageUrl,
+        price = this.price.toString(),
+        salesCount = 0, // Product 中没有销量字段，暂时设为 0
+        detailUrl = ""
+    )
+}
