@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.android_youbo.message.MyMessageActivity
-import com.example.android_youbo.message.MessOrdersActivity
 
 class MessageFragment : Fragment() {
     override fun onCreateView(
@@ -20,17 +20,15 @@ class MessageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
-        // 查找订单交易视图并设置点击事件
-        view.findViewById<View>(R.id.llOrder).setOnClickListener {
-            val intent = Intent(requireContext(), MessOrdersActivity::class.java)
-            startActivity(intent)
+
+        // 订单交易点击事件
+        view.findViewById<LinearLayout>(R.id.llOrder).setOnClickListener {
+            startActivity(Intent(requireContext(), com.example.android_youbo.message.MessageOderActivity::class.java))
         }
 
-        // 查找互动消息视图并设置点击事件
-        view.findViewById<View>(R.id.llInteraction).setOnClickListener {
-            val intent = Intent(requireContext(), MyMessageActivity::class.java)
-            startActivity(intent)
+        // 互动消息点击事件
+        view.findViewById<LinearLayout>(R.id.llInteraction).setOnClickListener {
+            startActivity(Intent(requireContext(), MyMessageActivity::class.java))
         }
     }
 }
