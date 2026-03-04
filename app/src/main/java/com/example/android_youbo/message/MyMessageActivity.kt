@@ -1,4 +1,4 @@
-package com.example.android_youbo.orders
+package com.example.android_youbo.message
 
 import android.os.Bundle
 import android.view.View

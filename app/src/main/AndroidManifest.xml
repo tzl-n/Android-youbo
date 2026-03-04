@@ -41,13 +41,13 @@
 
         <!-- 我的订单 Activity -->
         <activity
-            android:name=".orders.MyOrdersActivity"
+            android:name=".message.MessOrdersActivity"
             android:exported="false"
             android:label="我的订单" />
 
         <!-- 互动消息 Activity -->
         <activity
-            android:name=".orders.MyMessageActivity"
+            android:name=".message.MyMessageActivity"
             android:exported="false"
             android:label="互动消息" />
     </application>

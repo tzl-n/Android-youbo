@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.android_youbo.orders.MyMessageActivity
-import com.example.android_youbo.orders.MyOrdersActivity
+import com.example.android_youbo.message.MyMessageActivity
+import com.example.android_youbo.message.MessOrdersActivity
 
 class MessageFragment : Fragment() {
     override fun onCreateView(
@@ -23,7 +23,7 @@ class MessageFragment : Fragment() {
         
         // 查找订单交易视图并设置点击事件
         view.findViewById<View>(R.id.llOrder).setOnClickListener {
-            val intent = Intent(requireContext(), MyOrdersActivity::class.java)
+            val intent = Intent(requireContext(), MessOrdersActivity::class.java)
             startActivity(intent)
         }
 

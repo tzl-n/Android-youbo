@@ -1,4 +1,4 @@
-package com.example.android_youbo.orders
+package com.example.android_youbo.message
 
 import android.os.Bundle
 import android.view.View
@@ -8,10 +8,10 @@ import com.example.android_youbo.R
 /**
  * 我的订单页面
  */
-class MyOrdersActivity : AppCompatActivity() {
+class MessOrdersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_orders)
+        setContentView(R.layout.activity_mess_orders)
         
         // 设置返回按钮点击事件
         findViewById<View>(R.id.ivBack).setOnClickListener {
