@@ -44,6 +44,18 @@
             android:name=".MyOrdersActivity"
             android:exported="false"
             android:label="我的订单" />
+
+        <!-- 订单交易消息 Activity -->
+        <activity
+            android:name=".message.MessageOderActivity"
+            android:exported="false"
+            android:label="订单交易消息" />
+
+        <!-- 互动消息 Activity -->
+        <activity
+            android:name=".message.MyMessageActivity"
+            android:exported="false"
+            android:label="互动消息" />
     </application>
 
 </manifest>
