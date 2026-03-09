@@ -1,8 +1,8 @@
 package com.example.android_youbo
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -14,26 +14,23 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.android_youbo.network.ApiTestUtil
+import com.example.android_youbo.utils.MMKVUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class                                                    MainActivity : AppCompatActivity() {
+class
+MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var btnTestConnection: Button
     private lateinit var btnTestProducts: Button
     private lateinit var tvTestResult: TextView
     
-    // SharedPreferences 相关
-    private val PREFS_NAME = "user_prefs"
+    // MMKV 相关
     private val KEY_TEEN_MODE_ACKNOWLEDGED = "teen_mode_acknowledged"
-    private lateinit var prefs: SharedPreferences
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        
-        // 初始化 SharedPreferences
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         
         // 检查是否需要显示青少年模式提示
         showTeenModeDialogIfNeeded()
@@ -61,8 +58,8 @@ class                                                    MainActivity : AppCompa
             true
         }
         
-        // 初始加载第一个Fragment
-        supportFragmentManager.beginTransaction()
+        // 初始加载第一个 Fragment
+         supportFragmentManager.beginTransaction()
             .replace(R.id.container, YouboFragment())
             .commit()
         
@@ -77,7 +74,7 @@ class                                                    MainActivity : AppCompa
      * 显示青少年模式提示弹窗（如果需要）
      */
     private fun showTeenModeDialogIfNeeded() {
-        val isAcknowledged = prefs.getBoolean(KEY_TEEN_MODE_ACKNOWLEDGED, false)
+        val isAcknowledged = MMKVUtils.getBoolean(KEY_TEEN_MODE_ACKNOWLEDGED, false)
         
         if (!isAcknowledged) {
             showTeenModeDialog()
@@ -99,7 +96,7 @@ class                                                    MainActivity : AppCompa
         // 设置"我知道了"按钮点击事件
         dialogView.findViewById<Button>(R.id.btn_i_know).setOnClickListener {
             // 保存已确认状态
-            prefs.edit().putBoolean(KEY_TEEN_MODE_ACKNOWLEDGED, true).apply()
+            MMKVUtils.saveBoolean(KEY_TEEN_MODE_ACKNOWLEDGED, true)
             dialog.dismiss()
         }
         

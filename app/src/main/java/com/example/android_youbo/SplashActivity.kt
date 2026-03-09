@@ -1,36 +1,28 @@
 package com.example.android_youbo
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android_youbo.utils.MMKVUtils
 
 class SplashActivity : AppCompatActivity() {
     
     // 引导页显示时间（毫秒）
     private val SPLASH_TIME_OUT = 1000L
     
-    // SharedPreferences 名称
-    private val PREFS_NAME = "user_prefs"
-    
     // 用户是否同意隐私政策的 key
     private val KEY_AGREEMENT_ACCEPTED = "agreement_accepted"
-    
-    private lateinit var prefs: SharedPreferences
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         
-        // 初始化 SharedPreferences
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-        
         // 检查用户是否已经同意过隐私政策
-        val isAccepted = prefs.getBoolean(KEY_AGREEMENT_ACCEPTED, false)
+        val isAccepted = MMKVUtils.getBoolean(KEY_AGREEMENT_ACCEPTED, false)
         
         if (isAccepted) {
             // 用户已同意，直接进入主界面
@@ -62,7 +54,7 @@ class SplashActivity : AppCompatActivity() {
         dialogView.findViewById<Button>(R.id.btn_agree).setOnClickListener {
             // 同意并继续
             // 保存用户同意状态
-            prefs.edit().putBoolean(KEY_AGREEMENT_ACCEPTED, true).apply()
+            MMKVUtils.saveBoolean(KEY_AGREEMENT_ACCEPTED, true)
             
             dialog.dismiss()
             startSplashTimer()

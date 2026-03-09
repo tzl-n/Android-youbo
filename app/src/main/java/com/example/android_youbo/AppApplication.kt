@@ -3,6 +3,7 @@ package com.example.android_youbo
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.example.android_youbo.utils.MMKVUtils
 import com.tencent.bugly.crashreport.CrashReport
 
 class AppApplication : Application() {
@@ -32,7 +33,14 @@ class AppApplication : Application() {
     private fun initializeGlobalConfig() {
         // 初始化全局配置
         Log.d("AppApplication", "Initializing global configuration...")
-        CrashReport.initCrashReport(getApplicationContext(), "b7ca37f2c4", false);
+        
+        // 初始化 MMKV
+        MMKVUtils.init(this)
+        Log.d("AppApplication", "MMKV initialized")
+        
+        // 初始化 Bugly
+        CrashReport.initCrashReport(getApplicationContext(), "b7ca37f2c4", false)
+        Log.d("AppApplication", "Bugly initialized")
     }
 
 

@@ -89,6 +89,28 @@ class YouboFragment : Fragment() {
         
         // 设置默认选中第一个标签
         tabLayout.getTabAt(0)?.select()
+        
+        // 设置 Tab 切换监听器
+        tabLayout.addOnTabSelectedListener(object : com.google.android.material.tabs.TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: com.google.android.material.tabs.TabLayout.Tab) {
+                // 切换 Tab 时加载不同的数据
+                when (tab.position) {
+                    0 -> loadVideoData() // 精选
+                    1 -> loadHaohuoData() // 有播
+                    2 -> loadLiveStreamData() // 直播
+                    3 -> loadShortVideoData() // 短视频
+                }
+                Toast.makeText(context, "切换到：${tab.text}", Toast.LENGTH_SHORT).show()
+            }
+            
+            override fun onTabUnselected(tab: com.google.android.material.tabs.TabLayout.Tab) {
+                // Tab 取消选中时的处理
+            }
+            
+            override fun onTabReselected(tab: com.google.android.material.tabs.TabLayout.Tab) {
+                // Tab 重新选中的处理（可选：滚动到顶部）
+            }
+        })
     }
     
     private fun setupVideoRecyclerView() {
@@ -207,15 +229,91 @@ class YouboFragment : Fragment() {
                         videoAdapter.updateData(displayVideos)
                         Toast.makeText(context, "加载了${displayVideos.size}个视频", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(context, "API返回错误: ${apiResponse?.msg}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "API 返回错误：${apiResponse?.msg}", Toast.LENGTH_SHORT).show()
                         loadMockVideoData()
                     }
                 } else {
-                    Toast.makeText(context, "加载视频失败: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "加载视频失败：${response.code()}", Toast.LENGTH_SHORT).show()
                     loadMockVideoData()
                 }
             } catch (e: Exception) {
-                Toast.makeText(context, "网络错误: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "网络错误：${e.message}", Toast.LENGTH_SHORT).show()
+                loadMockVideoData()
+            }
+        }
+    }
+    
+    /**
+     * 加载有播数据
+     */
+    private fun loadHaohuoData() {
+        lifecycleScope.launch {
+            try {
+                val response = apiService.getRecommendVideos(3, 20)
+                if (response.isSuccessful) {
+                    val apiResponse = response.body()
+                    if (apiResponse?.code == 200) {
+                        realVideoList = apiResponse.data
+                        val displayVideos = realVideoList.map { it.toDisplayModel() }
+                        videoAdapter.updateData(displayVideos)
+                        Toast.makeText(context, "加载了${displayVideos.size}个有播商品", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "API 返回错误：${apiResponse?.msg}", Toast.LENGTH_SHORT).show()
+                        loadMockVideoData()
+                    }
+                } else {
+                    Toast.makeText(context, "加载失败：${response.code()}", Toast.LENGTH_SHORT).show()
+                    loadMockVideoData()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(context, "网络错误：${e.message}", Toast.LENGTH_SHORT).show()
+                loadMockVideoData()
+            }
+        }
+    }
+    
+    /**
+     * 加载直播数据
+     */
+    private fun loadLiveStreamData() {
+        lifecycleScope.launch {
+            try {
+                // 这里可以调用直播相关的 API
+                // val response = apiService.getLiveStreams()
+                Toast.makeText(context, "直播功能开发中...", Toast.LENGTH_SHORT).show()
+                // 暂时加载模拟数据
+                loadMockVideoData()
+            } catch (e: Exception) {
+                Toast.makeText(context, "网络错误：${e.message}", Toast.LENGTH_SHORT).show()
+                loadMockVideoData()
+            }
+        }
+    }
+    
+    /**
+     * 加载短视频数据
+     */
+    private fun loadShortVideoData() {
+        lifecycleScope.launch {
+            try {
+                val response = apiService.getRecommendVideos(2, 20)
+                if (response.isSuccessful) {
+                    val apiResponse = response.body()
+                    if (apiResponse?.code == 200) {
+                        realVideoList = apiResponse.data
+                        val displayVideos = realVideoList.map { it.toDisplayModel() }
+                        videoAdapter.updateData(displayVideos)
+                        Toast.makeText(context, "加载了${displayVideos.size}个短视频", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "API 返回错误：${apiResponse?.msg}", Toast.LENGTH_SHORT).show()
+                        loadMockVideoData()
+                    }
+                } else {
+                    Toast.makeText(context, "加载失败：${response.code()}", Toast.LENGTH_SHORT).show()
+                    loadMockVideoData()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(context, "网络错误：${e.message}", Toast.LENGTH_SHORT).show()
                 loadMockVideoData()
             }
         }

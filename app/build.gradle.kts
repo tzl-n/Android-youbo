@@ -79,6 +79,9 @@ dependencies {
     // Image Loading
     implementation("com.github.bumptech.glide:glide:4.16.0")
     
+    // MMKV - 高性能键值存储
+    implementation("com.tencent:mmkv-static:1.3.9")
+    
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

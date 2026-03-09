@@ -160,7 +160,7 @@ class HaohuoFragment : Fragment() {
         val authorName = holder.getView<TextView>(R.id.tv_author_name)
         authorName.text = item.author.nickname
     }
-    
+
     private fun loadVideoData() {
         lifecycleScope.launch {
             try {
